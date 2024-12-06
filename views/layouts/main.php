@@ -35,7 +35,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         <?php
         NavBar::begin([
             // 'brandLabel' => Yii::$app->name,
-            'brandLabel' => 'KinoProEvreev.com',
+            'brandLabel' => 'HelpContora',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top']
         ]);

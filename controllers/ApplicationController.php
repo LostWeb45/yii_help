@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Application;
 use app\models\ApplicationSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -16,6 +17,21 @@ class ApplicationController extends Controller
     /**
      * @inheritDoc
      */
+
+    public function beforeAction($action)
+    {
+        if (Yii::$app->user->isGuest || Yii::$app->user->identity->id_Role == 2) {
+            $this->redirect(['./site/login']);
+            return false;
+        }
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+
+        return true;
+    }
     public function behaviors()
     {
         return array_merge(
